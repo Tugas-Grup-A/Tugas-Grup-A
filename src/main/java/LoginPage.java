@@ -45,6 +45,4 @@ public class LoginPage {
         return errorMessage.getText();
     }
 
-public class LoginPage {
-
 }
