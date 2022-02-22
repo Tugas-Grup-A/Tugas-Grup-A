@@ -1,4 +1,3 @@
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -10,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LoginTest {
+public class SortingTest {
     private WebDriver driver;
     private Map<String, Object> vars;
     JavascriptExecutor js;
@@ -30,36 +29,52 @@ public class LoginTest {
     }
 
     @Test
-    public void negativeCase1() {
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.setUsername("admin");
-        loginPage.setPassword("password");
-        loginPage.clickLogin();
-        String error = loginPage.getErrorMessage();
-        Assert.assertTrue(error.contains("Username and password do not match any user in this service"));
-    }
-
-    @Test
-    public void negativeCase2() {
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.setUsername("admin");
-        loginPage.setPassword("");
-        loginPage.clickLogin();
-        String error = loginPage.getErrorMessage();
-        Assert.assertTrue(error.contains("Password is required"));
-    }
-
-    @Test
-    public void successfullyLogin() {
+    public void verifyDropDownLisAToZ() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.setUsername("standard_user");
         loginPage.setPassword("secret_sauce");
         loginPage.clickLogin();
         HomePage homePage = new HomePage(driver);
+        homePage.dropdownAtoZ();
         Assert.assertTrue(homePage.dropdownAtoZ());
+
+
+    }
+    @Test
+    public void verifyDropDownListZToA() {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.setUsername("standard_user");
+        loginPage.setPassword("secret_sauce");
+        loginPage.clickLogin();
+        HomePage homePage = new HomePage(driver);
+        homePage.dropdownZtoA();
+        Assert.assertTrue(homePage.dropdownZtoA());
+
+
+    }
+    @Test
+    public void verifyDropDownListLowToHigh() {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.setUsername("standard_user");
+        loginPage.setPassword("secret_sauce");
+        loginPage.clickLogin();
+        HomePage homePage = new HomePage(driver);
+        homePage.dropdownlowtohigh();
+        Assert.assertTrue(homePage.dropdownlowtohigh());
+
 
     }
 
-public class LoginTest {
+    @Test
+    public void verifyDropDownListHighToLow() {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.setUsername("standard_user");
+        loginPage.setPassword("secret_sauce");
+        loginPage.clickLogin();
+        HomePage homePage = new HomePage(driver);
+        homePage.dropdownhightolow();
+        Assert.assertTrue(homePage.dropdownhightolow());
 
+
+    }
 }
