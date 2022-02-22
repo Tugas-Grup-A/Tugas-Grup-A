@@ -1,14 +1,13 @@
-
+package org.example.LoginSauce;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.List;
-
 public class LoginPage {
-    public static WebDriver driver;
 
+    private static WebDriver driver;
+    //pagefactory agar @FindBy dikenali
     public LoginPage(WebDriver driver){
         PageFactory.initElements(driver, this);
         this.driver = driver;
@@ -26,9 +25,6 @@ public class LoginPage {
     @FindBy(id = "login-button")
     private WebElement loginButton;
 
-    @FindBy(xpath = "//select[@class=\"product_sort_container\"]")
-    private List<WebElement> searchlist;
-
     public void setUsername(String user){
         username.sendKeys(user);
     }
@@ -44,7 +40,5 @@ public class LoginPage {
     public String getErrorMessage(){
         return errorMessage.getText();
     }
-
-public class LoginPage {
 
 }
