@@ -59,7 +59,7 @@ public class LoginTest {
         Assert.assertTrue(homePage.dropdownAtoZ());
 
     }
-
-public class LoginTest {
-
+    
 }
+
+
