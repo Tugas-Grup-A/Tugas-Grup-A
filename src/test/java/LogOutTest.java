@@ -24,7 +24,7 @@ public class LogOutTest {
             Thread.sleep(2000);
         }
 
-        @After
+       // @After
         public void tearDown() {
             driver.quit();
         }
